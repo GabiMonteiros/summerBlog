@@ -1,14 +1,22 @@
 <html lang="en">
-<nav>
-  <a href="/">HOME PAGE</a>
-  <a href="/about">ABOUT PAGE</a>
-  <a href="/blogs/create">NEW POSTT</a>
-</nav> 
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Trip Berlin | <%= title%> </title>
+</head>
+<nav> 
   <div class="site-title">
     <a href="/"><h1>Summer in Berlin</h1></a>
     <p>the best place to be</p>
   </div>
+  <ul>
+    <li> <a href="/">HOME PAGE</a></li>
+    <li><a href="/about">ABOUT PAGE</a></li>
+    <li><a href="/blogs/create">NEW POST</a></li>
+  </ul>
+</nav> 
+<body>
+
   
   <div class="create-blog content">
     <!-- fazendo o post request para enviar o conteudo no data base  adicionando em form -action="/contacts" method="POST"-->
@@ -17,9 +25,9 @@
       <!-- e para acessar esse body do server add name atribute   -->
       <label for="title">Where to Go:</label>
       <input type="text" id="title" name="title" required>
-      <label for="snippet">About the expirience:</label>
+      <label for="snippet">What's your Tip:</label>
       <input type="text" id="snippet" name="snippet" required>
-      <label for="body">Tell us your Tip :</label>
+      <label for="body">Share your expirience:</label>
       <textarea id="body" name="body" required></textarea>
       <label for="image">Upload a image:</label>
       <input type="file" id="image_input" accept="image/png, image/jpg">
@@ -29,3 +37,5 @@
 
 </body>
 </html>
+
+<!-- https://www.youtube.com/watch?v=lzK8vM_wdoY como upload e display image js  -->

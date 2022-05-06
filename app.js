@@ -9,27 +9,40 @@ app.set('view engine', 'ejs');
 //listen request
 app.listen(3000, () =>
     console.log(" listening in localhost 3000")
-);
+); 
 
 
 
 app.get('/', (req, res) => {
-    //res.send('<p>home page</p>');
-    res.render('index');
+    const blogs = [
+        {
+            title: "Yoshi Finds gsgsgs",
+            snippet: "Lorem ipsum dolor sit amet, consectetur",
+        },
+        {
+            title: "Mario jhhlñ gsgsgs",
+            snippet: "Lorem ipsum dolor sit amet, consectetur",
+        },
+        {
+            title: "How to defeat gsgsgs",
+            snippet: "Lorem ipsum dolor sit amet, consectetur",
+        },
+    ];
+    //o 2o parametro é o dado objeto enviado para index.ejs 
+    res.render('index', {title: 'Home'});
 })
 
 app.get("/about", (req, res) => {
-    //res.send("<p>about page</p>");
-    res.render("about");
+    res.render("about", {title: 'About'});
 
 });
 
 //redirect
 app.get("/blogs/create", (req, res) => {
-    res.render("create");
+    res.render("create", { title: "New Post" });
 });
 
 //404 page
 app.use((req,res) => {
-    res.status(404).render("404");
+    res.status(404).render("404", { title: "Not Found" });
 })
