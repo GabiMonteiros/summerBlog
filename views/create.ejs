@@ -1,0 +1,31 @@
+<html lang="en">
+<nav>
+  <a href="/">HOME PAGE</a>
+  <a href="/about">ABOUT PAGE</a>
+  <a href="/blogs/create">NEW POSTT</a>
+</nav> 
+<body>
+  <div class="site-title">
+    <a href="/"><h1>Summer in Berlin</h1></a>
+    <p>the best place to be</p>
+  </div>
+  
+  <div class="create-blog content">
+    <!-- fazendo o post request para enviar o conteudo no data base  adicionando em form -action="/contacts" method="POST"-->
+    <form action="/contacts" method="POST">
+      <!-- qnd clica em submit is going to send a post request to /contacts URL -->
+      <!-- e para acessar esse body do server add name atribute   -->
+      <label for="title">Where to Go:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="snippet">About the expirience:</label>
+      <input type="text" id="snippet" name="snippet" required>
+      <label for="body">Tell us your Tip :</label>
+      <textarea id="body" name="body" required></textarea>
+      <label for="image">Upload a image:</label>
+      <input type="file" id="image_input" accept="image/png, image/jpg">
+      <button>Submit 😊 </button>
+    </form>
+  </div>
+
+</body>
+</html>
