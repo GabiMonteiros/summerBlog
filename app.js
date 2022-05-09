@@ -1,16 +1,28 @@
 const express = require('express');
-const app = express();
 const morgan = require('morgan'); //middleware
+const mongoose = require('mongoose'); //connect to DB
+const app = express();
+//connect to MongoDB
+const dbURI = "mongodb+srv://firstdb:test1234@cluster0.yrswz.mongodb.net/summer-blog?retryWrites=true&w=majority";
+mongoose
+    .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then((result) =>
+        app.listen(3000, () =>
+            console.log(" listenen in localhost 3000 and connect mongoodb")
+        )
+    )
 
- 
+    .catch((err) => console.log(err));
+
+
 //register view enginee
 app.set('view engine', 'ejs');
 //app.set('views', 'partials'); 
 
 //listen request
-app.listen(3000, () =>
-    console.log(" listening in localhost 3000")
-); 
+// app.listen(3000, () =>
+//     console.log(" listening in localhost 3000")
+// ); 
 
 //static files middleware - public css acess to browser
 app.use(express.static('public'));
@@ -18,7 +30,6 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 
    
-
 
 
 
