@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summer Trip Berlin | <%= title%> </title>
-</head> 
-<nav>
-  <div class="site-title">
-    <a href="/"><h1>Summer in Berlin</h1></a>
-    <p>the best place to be</p>
-  </div>
-  <ul>
-    <li> <a href="/">HOME PAGE</a></li>
-    <li><a href="/about">ABOUT PAGE</a></li>
-    <li><a href="/blogs/create">NEW POST</a></li>
-  </ul>
-</nav> 
+    <%- include('./partials/head') %>
+<!-- ./ no path significa que ta no msm directory -->
+    <%- include('./partials/nav') %>
 <body>
     
     <h1>HOME PAGE</h1>
-    <h2>🔥🌞All Summer Tips 🔥🌞</h2>
+    <div class="blogs content"> 
+        <h2>🔥🌞All Summer Tips 🔥🌞</h2>
+        <!-- conteudo dinamico dos posts com EJS. *blogs* vem da const blogs em app.js -->
+        <% if (blogs.length > 0) { %>
+            <% blogs.forEach(blog =>{ %>
+                <h3 class="title"><%= blog.title %></h3> <!-- title vem do const blogs em app.js -->
+                
+                <p class="snippet"><%= blog.snippet %></p>
 
-    <!-- conteudo dinamico dos posts com EJS -->
-    <% if (blogs.length > 0) { %>
-        <% blogs.forEach(blog =>{ %>
-            <h3></h3>
-            <p></p>
-
-        <% }) %>
-   <% } %>    
+            <% }) %>
+        <% } else { %> 
+            <p> There are no posts to display 😕</p>
+        <% } %>    
+    </div>  
+    
+  <%- include('./partials/footer') %>
 </body>
 </html>

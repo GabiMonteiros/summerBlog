@@ -28,9 +28,9 @@ app.get('/', (req, res) => {
             snippet: "Lorem ipsum dolor sit amet, consectetur",
         },
     ];
-    //o 2o parametro é o dado objeto enviado para index.ejs 
-    res.render('index', {title: 'Home'});
-})
+    //o 2o parametro é o dado objeto enviado para index.ejs , tem que definir *blogs* aqui pra funcionar no index.ejs
+    res.render('index', { title: 'Home', blogs });
+});
 
 app.get("/about", (req, res) => {
     res.render("about", {title: 'About'});
