@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan'); //middleware
 
  
 //register view enginee
@@ -10,6 +11,14 @@ app.set('view engine', 'ejs');
 app.listen(3000, () =>
     console.log(" listening in localhost 3000")
 ); 
+
+//static files middleware - public css acess to browser
+app.use(express.static('public'));
+
+app.use(morgan('dev'));
+
+   
+
 
 
 
@@ -42,7 +51,7 @@ app.get("/blogs/create", (req, res) => {
     res.render("create", { title: "New Post" });
 });
 
-//404 page
+//404 page - middleware
 app.use((req,res) => {
     res.status(404).render("404", { title: "Not Found" });
 })
