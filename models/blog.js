@@ -16,10 +16,10 @@ const blogSchema = new Schema({
         type: String,
         require: true
     },
-    image: {
-        type: File,
-        require: true
-    }
+    // image: {
+    //     type: File,
+    //     require: true
+    // }
 }, { timestamps: true })
 
 //const to store this model
