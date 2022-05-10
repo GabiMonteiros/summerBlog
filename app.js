@@ -1,7 +1,9 @@
+
 const express = require('express');
 const morgan = require('morgan'); //middleware
 const mongoose = require('mongoose'); //connect to DB
 const app = express();
+require("dotenv").config();
 //connect to MongoDB
 const dbURI = "mongodb+srv://firstdb:test1234@cluster0.yrswz.mongodb.net/summer-blog?retryWrites=true&w=majority";
 mongoose
