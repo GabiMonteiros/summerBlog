@@ -22,12 +22,10 @@ mongoose
 
 //register view enginee
 app.set('view engine', 'ejs');
-//app.set('views', 'partials'); 
 
 
 //static files middleware - public css acess to browser
 app.use(express.static('public'));
-
 app.use(morgan('dev'));
 
 // //interect with Blog model_ mongoose and mongo sandbox routes
@@ -88,6 +86,10 @@ app.get('/posts', (req, res) => {
     ;
 })
 
+// handle post request
+app.post('/posts', (req, res) => {
+    //middleware to past the ta
+})
 
 //redirect
 app.get("/blogs/create", (req, res) => {
