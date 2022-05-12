@@ -101,8 +101,10 @@ app.delete('/posts/:id', (req, res) => {
     const id = req.params.id;
     Blog.findByIdAndDelete(id)
         .then((result) => {
-            //tem q enviar um json data back to the browser voltar em 33min pra escrever os steps
-            res.json({ redirect: '/posts', })
+            res.json({ redirect: "/posts" });
+        })
+        .catch((err) => {
+            console.log(err);
         })
 })
 
