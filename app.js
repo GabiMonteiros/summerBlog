@@ -4,6 +4,8 @@ const morgan = require('morgan'); //middleware
 const mongoose = require('mongoose'); //connect to DB
 const Blog = require('./models/blog'); //connect with Blog Model
 const { use } = require('express/lib/application');
+const req = require('express/lib/request');
+const { render } = require('express/lib/response');
 const app = express();
 require("dotenv").config();
 
@@ -29,24 +31,6 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
-
-// //interect with Blog model_ mongoose and mongo sandbox routes
-// app.get('/add-post', (req, res) => {
-//     const post = new Blog({
-//         title: 'second post',
-//         snippet: '2 about your Travel tip',
-//         body: 'more about your expirience'
-//         //image: ''
-//     });
-//     //saving to the DB
-//     post.save()
-//         .then((result) => {
-//             res.send(result)
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-// })
 
 
 
@@ -97,8 +81,21 @@ app.post('/posts', (req, res) => {
         })
         .catch((err) => {
             console.log(err);
-    })
+        })
 });
+
+//extract the route parameter from URL
+app.get('/posts/:id', (req, res) => {
+    const id = req.params.id;
+    Blog.findById(id)
+        .then((result) => {
+            res.render('details', { blog: result, title: 'Post Detail' });
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+});
+
 
 //redirect
 app.get("/blogs/create", (req, res) => {
