@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan'); //middleware
 const mongoose = require('mongoose'); //connect to DB
 const Blog = require('./models/blog'); //connect with Blog Model
+const { use } = require('express/lib/application');
 const app = express();
 require("dotenv").config();
 
@@ -26,6 +27,7 @@ app.set('view engine', 'ejs');
 
 //static files middleware - public css acess to browser
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // //interect with Blog model_ mongoose and mongo sandbox routes
@@ -88,8 +90,15 @@ app.get('/posts', (req, res) => {
 
 // handle post request
 app.post('/posts', (req, res) => {
-    //middleware to past the ta
-})
+    const blog = new Blog(req.body)
+    blog.save()
+        .then((result) => {
+            res.redirect('/posts')
+        })
+        .catch((err) => {
+            console.log(err);
+    })
+});
 
 //redirect
 app.get("/blogs/create", (req, res) => {
