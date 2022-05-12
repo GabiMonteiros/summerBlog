@@ -9,8 +9,26 @@
     <div class="content">
       <p><%= blog.body %></p>
     </div>
-    <!-- <a class="delete" data-doc="<%= blog._id %>"> Delete</a> -->
+    <a class="delete" data-doc="<%= blog._id %>"> Delete</a>
   </div>
   <%- include('./partials/footer') %>
+  <script>
+    const traschcan = document.querySelector('a.delete'); //ta deletando a <a> com class delete
+      //click event pra lançar a function
+        traschcan.addEventListener('click',(e) =>{
+            //store o request do event click nessa const 
+          const endpoint = `/posts/${traschcan.dataset.doc}`  //$ é igual a id, e a id vem do *data-doc=* , e para acessar faz assim *traschcan.dataset* + doc que é o atributo a cima 
+          
+          //fetch api, async
+          //ajax request- por isso nao pode apenas fazer res.render('index') no app.delete em app.js. tem q enviar um json data back to the browser
+          //delet request to the endpoint
+          fetch(endpoint,{
+              method: 'DELETE' //só precisa diser que o metho é um delete req
+          }) //reveeeer 30min
+          .then((response)=> response.json()) //assim retorna o json data como um JS object que pode ser usado no frontend
+          .then((data) => window.location.href = data.redirect) // com * window.location.href = data.redirect* redirecionando para home, aqui é onde tem acesso ao JS object que é o *data*
+          .catch(err=>console.log(err));
+        })
+  </script>
 </body>
 </html>
