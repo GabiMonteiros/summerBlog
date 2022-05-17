@@ -21,8 +21,8 @@ const post_details = (req, res) => {
         .then((result) => {
             res.render("blogs/details", { blog: result, title: "Post Detail" });
         })
-        .catch((err) => {
-            console.log(err);
+        .catch(err => {
+            res.status(404).render("404", { title: "Post not found" });
         });
 }
 
