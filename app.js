@@ -11,9 +11,9 @@ const app = express();
 
 //connect to MongoDB
 mongoose
-    .connect(process.env.MONGODB_URI,
-        
-        { useNewUrlParser: true, useUnifiedTopology: true }
+    .connect(
+        process.env.MONGODB_URI,
+        {useNewUrlParser: true, useUnifiedTopology: true,}
     )
     .then((result) =>
         app.listen(3000, () =>
@@ -23,18 +23,7 @@ mongoose
 
     .catch((err) => console.log("no connection"));
 
-//storage img db
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) { //PRECISO CRIAR O UPLOAD FILE
-        cb(null, "/tmp/my-uploads");
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-        cb(null, file.fieldname + "-" + uniqueSuffix);
-    },
-});
 
-const upload = multer({ storage: storage });
 
 
 //register view enginee
@@ -44,6 +33,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use('/uploads', express.static('uploads'))
 
 //routes
 app.get("/", (req, res) => {
