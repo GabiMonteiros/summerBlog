@@ -4,6 +4,7 @@ const express = require("express");
 const morgan = require("morgan"); //middleware
 const mongoose = require("mongoose"); //connect to DB
 const blogRoutes = require("./routes/blogRoutes"); //to connect with blog routes
+const multer = require('multer');
 //express app
 const app = express();
 
@@ -16,11 +17,25 @@ mongoose
     )
     .then((result) =>
         app.listen(3000, () =>
-            console.log(" listenen in localhost 3000 and connect mongoodb")
+            console.log(" listenen in localhost 3000 and connect with mongoodb")
         )
     )
 
     .catch((err) => console.log("no connection"));
+
+//storage img db
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) { //PRECISO CRIAR O UPLOAD FILE
+        cb(null, "/tmp/my-uploads");
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+        cb(null, file.fieldname + "-" + uniqueSuffix);
+    },
+});
+
+const upload = multer({ storage: storage });
+
 
 //register view enginee
 app.set("view engine", "ejs");
