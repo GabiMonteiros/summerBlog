@@ -6,7 +6,7 @@ const upload= require('../middleware/upload')
 
 //get all posts
 router.get("/", blogController.post_index);  
-// handle post request
+// handle post request save in DB, entre () deve ser o name property dado no input field
 router.post("/", upload.single("image"),blogController.post_create);
 //redirect
 router.get("/create", blogController.post_create_get);

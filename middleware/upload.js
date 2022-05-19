@@ -4,31 +4,16 @@ const multer = require('multer')
 //storage img db
 const storage = multer.diskStorage({
     destination: function (req, file, cb) { 
-        cb(null, "uploads/");
+        cb(null, "uploads");
+        
     },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = path.extname(file.originalname);
-        cb(null, Date.now + uniqueSuffix);
+filename: function (req, file, cb) {
+        console.log(file);
+        cb(null, Date.now() + path.extname(file.originalname));
     },
 });
 
-const upload = multer({
-    storage: storage,
-    fileFilter: function (req, file, callback) {
-        if (
-            file.mimetype == 'image/png' ||
-            file.mimetype == 'image/jpg'
-        ) {
-            callback(null,true)
-        } else {
-            console.log('only jpg  & png file supported!')
-            callback(null,false)
-        }
+const upload = multer({storage: storage})
 
-    }, 
-    limits: {
-        fieldSize: 1024 * 1024 * 2
-    }
-});
 
 module.exports = upload 

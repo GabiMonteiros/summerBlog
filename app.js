@@ -4,7 +4,6 @@ const express = require("express");
 const morgan = require("morgan"); //middleware
 const mongoose = require("mongoose"); //connect to DB
 const blogRoutes = require("./routes/blogRoutes"); //to connect with blog routes
-const multer = require('multer');
 //express app
 const app = express();
 

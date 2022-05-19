@@ -36,6 +36,7 @@ const post_create = (req, res) => {
     blog.save()
         .then((result) => {
             res.redirect("/posts");
+            console.log('image upload')
         })
         .catch((err) => {
             console.log(err);

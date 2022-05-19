@@ -6,7 +6,7 @@
   
   <div class="create-blog content">
     <!-- fazendo o post request para enviar o conteudo no data base  adicionando em form -action="/posts" method="POST"-->
-    <form action="/posts" method="POST">
+    <form action="/posts" method="POST" enctype="multipart/form-data">
       <!-- qnd clica em submit is going to send a post request to /posts URL -->
       <!-- e para acessar esse body do server add name atribute   -->
       <label for="title">Where to Go:</label>
@@ -16,7 +16,7 @@
       <label for="body">Share your expirience:</label>
       <textarea id="body" name="body" required></textarea>
       <label for="image">Upload a image:</label>
-      <input type="file" id="image" name="file" accept="image/png, image/jpg">
+      <input type="file" id="image" name="image" accept="image/png, image/jpg">
       <button>Submit 😊 </button>
     </form>
   </div>
