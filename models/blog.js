@@ -17,11 +17,12 @@ const blogSchema = new Schema({
         require: true
     },
     image: {
-        data: Buffer,
-        contentType: String
+        type: String,
+        
     }
 }, { timestamps: true })
 
 //const to store this model
 const Blog = mongoose.model('Blog', blogSchema);
 module.exports = Blog
+

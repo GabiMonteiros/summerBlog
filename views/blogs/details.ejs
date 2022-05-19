@@ -12,10 +12,11 @@
     <a class="delete" data-doc="<%= blog._id %>">
        <img src="/trashcan.svg" alt="delete icon">
     </a>
+    <div class="image">
+     <img src="<%= blog.image %>" width="70px" height="140px" alt="">
+    </div>
   </div>
-  <div class="image">
-     <img src="<%= blog.image %>" alt="trip image">
-  </div>
+  
   <%- include('../partials/footer') %>
   <script>
     const traschcan = document.querySelector('a.delete'); 

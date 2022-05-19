@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan"); //middleware
 const mongoose = require("mongoose"); //connect to DB
+const bodyParser = require('body-parser')
 const blogRoutes = require("./routes/blogRoutes"); //to connect with blog routes
 //express app
 const app = express();

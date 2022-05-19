@@ -4,7 +4,7 @@ const Blog = require('../models/blog'); //connect with Blog Model
 
 const post_index = (req,res) => {
     //Blog is the model, find method, to all posts
-    Blog.find()
+    Blog.find() //NESSE GET TEM QUE ADICIONAR 49MIN vide
         .sort({ createdAt: -1 }) //.sort... do mais novo pro mais velho
         .then((result) => {
             //2o arg is the blogs collection in MongoDB
@@ -32,7 +32,13 @@ const post_create_get = (req, res) => {
 }
 
 const post_create = (req, res) => {
-    const blog = new Blog(req.body);
+    const blog = new Blog() ; //req.file to na duvida 
+    blog.title = req.body.title;
+    blog.snippet = req.body.snippet;
+    blog.body = req.body.body;
+    blog.image = req.file.filename;
+    console.log(req.body);
+    console.log(req.file);
     blog.save()
         .then((result) => {
             res.redirect("/posts");
