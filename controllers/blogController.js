@@ -15,16 +15,7 @@ const post_index = (req,res) => {
         });
 }
 
-const post_details = (req, res) => {
-    const id = req.params.id;
-    Blog.findById(id)
-        .then((result) => {
-            res.render("blogs/details", { blog: result, title: "Post Detail" });
-        })
-        .catch(err => {
-            res.status(404).render("404", { title: "Post not found" });
-        });
-}
+
 
 
 const post_create_get = (req, res) => {
@@ -32,7 +23,7 @@ const post_create_get = (req, res) => {
 }
 
 const post_create = (req, res) => {
-    const blog = new Blog() ; //req.file to na duvida 
+    const blog = new Blog() ; 
     blog.title = req.body.title;
     blog.snippet = req.body.snippet;
     blog.body = req.body.body;
@@ -48,6 +39,17 @@ const post_create = (req, res) => {
             console.log(err);
         });
 }
+
+const post_details = (req, res) => {
+    const id = req.params.id;
+    Blog.findById(id)
+        .then((result) => {
+            res.render("blogs/details", { blog: result, title: "Post Detail" });
+        })
+        .catch((err) => {
+            res.status(404).render("404", { title: "Post not found" });
+        });
+};
 
 const post_delete = (req, res) => {
     const id = req.params.id;
