@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
     body{
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
-      font-family: 'Noto Serif', serif;
-      max-width: 1200px;
+      margin: 0;
+      font-family: system-ui;
+      
     }
-    p, h1, h2, h3, a, ul{
+
+    
+
+    h2, h3, a, ul{
       margin: 0;
       padding: 0;
       text-decoration: none;
@@ -14,30 +15,59 @@
     }
 
     /* nav & footer styles */
+
+    .navContainer{
+      width: 90%;
+      
+    }
+    /* nav = navbar  */
     nav{
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 60px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-      text-transform: uppercase;
+      width: 100%;
+      overflow: hidden;
+      height: 100px;
+      line-height: 100px;
+      background: rgb(241, 207, 128);
+      border-bottom: 2px solid gray;
     }
     nav ul{
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      float: right;
     }
+
+  
     nav li{
-      list-style-type: none;
-      margin-left: 20px;
+      float: left;
+      width: 120px;
+      height: 30px;
+      list-style: none;
+      text-transform: uppercase;
+      display: block;
     }
-    nav h1{
-      font-size: 3em;
-    }
-    nav p, nav a{
+    
+    nav a{
       color: #777;
-      font-weight: 300;
+      font-weight: 400;
     }
+
+    nav li:hover{
+      background: rgb(241, 137, 191);
+      
+    }    
+
+    nav li a:hover{
+      color: beige;
+    }
+
+    .logo_div{
+      
+    }
+
+    .logo{
+      width: 150px;
+      float: left;
+      
+
+    }
+
     footer{
       color: #777;
       text-align: center;
@@ -50,11 +80,35 @@
       text-transform: capitalize;
       margin-bottom: 8px;
     }
+
+
     .content{
       margin-left: 20px;
     }
 
     /* index styles */
+    .wrap{
+      background-color: rgb(54, 35, 224);
+      background-image: linear-gradient(rgba(41, 39, 39, 0.3), rgba(67, 63, 63, 0.3)), url("images/02cherryTree.jpeg");
+      color: rgb(238, 236, 233);
+      font-size: 2em;
+      background-size: cover;
+      padding-top: 200px;
+      padding-bottom: 200px;
+    }
+
+    .container{
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .coverImg{
+      width: 700px; ;
+      background-image: url(cherryTree.jpg);
+    }
     .blogs a{
       display: block;
       margin: 40px 0;

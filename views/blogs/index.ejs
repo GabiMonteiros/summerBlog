@@ -5,9 +5,16 @@
     <%- include('../partials/nav') %>
 <body>
     
-    <h1>HOME PAGE</h1>
+    <div class="wrap">
+        <div class="container">
+            <h1>Summer in Berlin</h1>
+            <p>the best place to be</p>
+        </div>
+    </div>
+    
     <div class="blogs content"> 
         <h2>🔥🌞All Summer Tips 🔥🌞</h2>
+        
         <!-- conteudo dinamico dos posts com EJS. *blogs* vem da const blogs em app.js -->
         <% if (blogs.length > 0) { %>
             <% blogs.forEach(blog =>{ %>
