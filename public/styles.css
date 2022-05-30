@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
     body{
       margin: 0;
+      padding: 0;
       font-family: system-ui;
+      background: rgb(235, 233, 229);
       
     }
 
@@ -19,15 +21,20 @@
     .navContainer{
       width: 90%;
       
+      
     }
     /* nav = navbar  */
     nav{
       width: 100%;
       overflow: hidden;
-      height: 100px;
-      line-height: 100px;
-      background: rgb(241, 207, 128);
+      height: 70px;
+      line-height: 70px;
+      background: rgb(235, 233, 229);
       border-bottom: 2px solid gray;
+      /*colocar shadow na no bootom*/
+      position: sticky;
+      top: 0;
+
     }
     nav ul{
       float: right;
@@ -36,11 +43,14 @@
   
     nav li{
       float: left;
-      width: 120px;
-      height: 30px;
+      width: 130px;
+      height: 70px;
       list-style: none;
       text-transform: uppercase;
       display: block;
+      line-height: 70px;
+      text-align: center;
+      /* font-family: georgia; */
     }
     
     nav a{
@@ -49,7 +59,7 @@
     }
 
     nav li:hover{
-      background: rgb(241, 137, 191);
+      background: rgb(251, 149, 231);
       
     }    
 
@@ -57,15 +67,14 @@
       color: beige;
     }
 
-    .logo_div{
-      
-    }
+    
 
     .logo{
-      width: 150px;
+      width: 200px;
       float: left;
+      position:fixed;
+      top: -12px;
       
-
     }
 
     footer{
