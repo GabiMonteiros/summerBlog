@@ -13,19 +13,39 @@
     </div>
     
     <div class="blogs content"> 
-        <h2>🔥🌞All Summer Tips 🔥🌞</h2>
+        <h2>All Summer Tips </h2>
         
-        <!-- conteudo dinamico dos posts com EJS. *blogs* vem da const blogs em app.js -->
-        <% if (blogs.length > 0) { %>
-            <% blogs.forEach(blog =>{ %>
-                <a  class="single" href="/posts/<%=blog._id %>">
-                    <h3 class="title"><%= blog.title %></h3> <!-- title vem do const blogs em app.js -->
-                    <p class="snippet"><%= blog.snippet %></p>
-                </a>
-            <% }) %>
-        <% } else { %> 
-            <p> There are no posts to display 😕</p>
-        <% } %>    
+        
+        <div class="top-content">
+            <!-- conteudo dinamico dos posts com EJS. *blogs* vem da const blogs em app.js -->
+            <% if (blogs.length > 0) { %>
+                <% blogs.forEach(blog =>{ %>
+                    <a  class="single" href="/posts/<%=blog._id %>">
+                        <div class="pic">
+                            <img src="<%= blog.image %>" width="60px" height="60px" alt=""  class="photo-gallery">
+                        </div>
+                        <h3 class="title"><%= blog.title %></h3> <!-- title vem do const blogs em app.js -->
+                        <p class="snippet"><%= blog.snippet %></p>
+                        
+                    </a>
+                <% }) %>
+            <% } else { %> 
+                <p> There are no posts to display 😕</p>
+            <% } %>   
+        
+        </div>
+
+        <!-- <div class="photo-gallery">
+            <% if (blogs.length > 0) { %>
+                <% blogs.forEach(blog =>{ %>
+                    <a  class="single" href="/posts/<%=blog._id %>">
+                       <img src="<%= blog.image %>" width="50px" height="50px" alt="">
+                    </a>
+                <% }) %>
+            <% } else { %> 
+                <p> There are no posts to display 😕</p>
+            <% } %>   
+        </div> -->
     </div>  
     
   <%- include('../partials/footer') %>

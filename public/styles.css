@@ -50,6 +50,7 @@
       display: block;
       line-height: 70px;
       text-align: center;
+      transition: color .5s;
       /* font-family: georgia; */
     }
     
@@ -58,14 +59,14 @@
       font-weight: 400;
     }
 
-    nav li:hover{
-      background: rgb(8, 202, 66);
+    nav a:hover{
+      color: rgb(92, 231, 65);
       
     }    
 
-    nav li a:hover{
+    /* nav li a:hover{
       color: beige;
-    }
+    } */
 
     
 
@@ -90,12 +91,40 @@
       margin-bottom: 8px;
     }
 
-
-    .content{
-      margin-left: 20px;
+    /* home page */
+    
+    .blogs h2::before{
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 3px;
+      background-color:rgb(92, 231, 65);
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: animate 4s linear infinite;
     }
 
-    /* index styles */
+    @keyframes animate{
+      0%{
+        width: 100px;
+      }
+      50%{
+        width: 200px;
+      }
+      100%{
+        width: 100px;
+      }
+    }
+
+    .photo-gallery{
+     
+      margin: auto;
+      display: block;
+      
+    }
+
+    
     .wrap{
       background-color: rgb(54, 35, 224);
       background-image: linear-gradient(rgba(41, 39, 39, 0.3), rgba(67, 63, 63, 0.3)), url("images/02cherryTree.jpeg");
@@ -114,23 +143,33 @@
       padding-right: 1rem;
     }
     
-    .coverImg{
-      width: 700px; ;
-      background-image: url(cherryTree.jpg);
+      /* blogs content = container*/
+     .blogs {
+      width: 100%;
+      text-align: center;
     }
+
+    .content h2 {
+      margin: 40px 0;
+      font-weight: normal;
+    }
+
+   
     .blogs a{
       display: block;
       margin: 40px 0;
       padding-left: 30px;
-      border-left: 6px solid crimson;
+      border-left: 6px solid rgb(92, 231, 65);
     }
     .blogs a:hover h3{
-      color: crimson;
+      color: rgb(92, 231, 65);
     }
 
     /* details styles */
     .details{
       position: relative;
+      top: 100px;
+      text-align: center;
     }
     .delete{
       position: absolute;
@@ -171,4 +210,9 @@
       border-radius: 0.5rem;
       font-size: 1.2em;
       cursor: pointer;
+      
+    }
+
+    .create-blog{
+      text-align: center;
     }

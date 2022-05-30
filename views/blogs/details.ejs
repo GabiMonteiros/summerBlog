@@ -6,16 +6,17 @@
 
   <div class="details content">
     <h2><%= blog.title %></h2>
+    <div class="image">
+     <img src="<%= blog.image %>" width="1000px" height="500px" alt="">
+    </div>
+  </div>
     <div class="content">
       <p><%= blog.body %></p>
     </div>
     <a class="delete" data-doc="<%= blog._id %>">
        <img src="/trashcan.svg" alt="delete icon">
     </a>
-    <div class="image">
-     <img src="<%= blog.image %>" width="700px" height="700px" alt="">
-    </div>
-  </div>
+    
   
   <%- include('../partials/footer') %>
   <script>
