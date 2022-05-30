@@ -22,7 +22,7 @@
                 <% blogs.forEach(blog =>{ %>
                     <a  class="single" href="/posts/<%=blog._id %>">
                         <div class="pic">
-                            <img src="<%= blog.image %>" width="60px" height="60px" alt=""  class="photo-gallery">
+                            <img src="<%= blog.image %>" width="160px" height="160px" alt=""  class="photo-gallery">
                         </div>
                         <h3 class="title"><%= blog.title %></h3> <!-- title vem do const blogs em app.js -->
                         <p class="snippet"><%= blog.snippet %></p>
