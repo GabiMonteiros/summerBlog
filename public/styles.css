@@ -29,7 +29,7 @@
       overflow: hidden;
       height: 70px;
       line-height: 70px;
-      background: rgb(241, 241, 241);
+      background: rgb(117, 70, 70);
       border-bottom: 2px solid gray;
       /*colocar shadow na no bootom*/
       position: sticky;
@@ -91,16 +91,19 @@
       margin-bottom: 8px;
     }
 
-    /* home page */
+    /* ---------------------------home page------------------------------ */
     
-    .blogs h2::before{
+    
+    
+    .title::before{
+      text-align: center;
       content: '';
       position: absolute;
       width: 100px;
       height: 3px;
       background-color:rgb(92, 231, 65);
       bottom: 50px;
-      left: 50%;
+      left: 58%;
       transform: translateX(-50%);
       animation: animate 4s linear infinite;
     }
@@ -116,13 +119,48 @@
         width: 100px;
       }
     }
+    
+    
 
-    .photo-gallery{
      
-      margin: auto;
-      display: block;
-      
+
+     
+    
+    
+    .blogs img{
+      background-color:  aqua;
     }
+
+    /*mudança de tamanho da imagem*/
+    .blogs img{
+      width: 320px;
+      height: 300px;
+      margin: 10px 0;
+      filter: grayscale(80%);
+      transition: 1s;
+
+    }
+
+    /* gallery*/
+    .blogs{
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+    
+  
+
+    .blogs img:hover{
+      filter: grayscale(0);
+      transform: scale(1.1);
+
+    }
+
+    .blogs a:hover h3{
+      color: rgb(92, 231, 65);
+    }
+
 
     
     .wrap{
@@ -142,30 +180,12 @@
       padding-left: 1rem;
       padding-right: 1rem;
     }
-    
-      /* blogs content = container*/
-     .blogs {
-      width: 100%;
-      text-align: center;
-    }
-
-    .content h2 {
-      margin: 40px 0;
-      font-weight: normal;
-    }
-
+  
    
-    .blogs a{
-      display: block;
-      margin: 40px 0;
-      padding-left: 30px;
-      border-left: 6px solid rgb(92, 231, 65);
-    }
-    .blogs a:hover h3{
-      color: rgb(92, 231, 65);
-    }
 
-    /* details styles */
+    
+    /* ------------------details styles----------------------- */
+
     .details{
       position: relative;
       top: 100px;
@@ -183,7 +203,7 @@
       box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
     }
 
-    /* create styles */
+    /*--------------------------------- create styles ------------------------*/
     .create-blog form{
       max-width: 400px;
       margin: 100 auto;
