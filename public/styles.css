@@ -30,9 +30,7 @@
       height: 70px;
       line-height: 70px;
       background: rgb(117, 70, 70);
-      border-bottom: 2px solid gray;
-      /*colocar shadow na no bootom*/
-      position: -webkit-sticky;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.5);
       position: sticky;
       top: 0;
 
@@ -52,11 +50,10 @@
       line-height: 70px;
       text-align: center;
       transition: color .5s;
-      /* font-family: georgia; */
     }
     
     nav a{
-      color: #777;
+      color: rgb(223, 206, 206);
       font-weight: 400;
     }
 
@@ -101,6 +98,7 @@
       align-items: center;
       justify-content: center;
       margin-top: 80px;
+      font-weight: normal;
 
     }
     
@@ -120,10 +118,10 @@
   
     
     .blogs img{
-      background-color:  aqua;
+      background-color:  rgb(117, 70, 70);
     }
 
-    /*mudança de tamanho da imagem*/
+    
     .blogs img{
       width: 320px;
       height: 300px;
@@ -159,8 +157,8 @@
 
     
     .wrap{
-      background-color: rgb(54, 35, 224);
-      background-image: linear-gradient(rgba(41, 39, 39, 0.3), rgba(67, 63, 63, 0.3)), url("images/02cherryTree.jpeg");
+      background-color: rgb(117, 70, 70);
+      background-image: linear-gradient(rgba(41, 39, 39, 0.3), rgba(67, 63, 63, 0.3)), url("images/04cherryTree.jpg");
       color: rgb(238, 236, 233);
       font-size: 2em;
       background-size: cover;
