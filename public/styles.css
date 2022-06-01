@@ -32,6 +32,7 @@
       background: rgb(117, 70, 70);
       border-bottom: 2px solid gray;
       /*colocar shadow na no bootom*/
+      position: -webkit-sticky;
       position: sticky;
       top: 0;
 
@@ -94,19 +95,15 @@
     /* ---------------------------home page------------------------------ */
     
     
-    
-    .title::before{
-      text-align: center;
-      content: '';
-      position: absolute;
-      width: 100px;
-      height: 3px;
-      background-color:rgb(92, 231, 65);
-      bottom: 50px;
-      left: 58%;
-      transform: translateX(-50%);
-      animation: animate 4s linear infinite;
+    .title h1{ /*container*/
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 80px;
+
     }
+    
 
     @keyframes animate{
       0%{
@@ -120,12 +117,7 @@
       }
     }
     
-    
-
-     
-
-     
-    
+  
     
     .blogs img{
       background-color:  aqua;
@@ -135,13 +127,16 @@
     .blogs img{
       width: 320px;
       height: 300px;
-      margin: 10px 0;
-      filter: grayscale(80%);
-      transition: 1s;
+      margin-top: 130px;
+      margin-bottom: 50px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      border-radius: 10px;
+
+     
 
     }
 
-    /* gallery*/
+    
     .blogs{
       display: flex;
       justify-content: space-around;
@@ -152,7 +147,7 @@
   
 
     .blogs img:hover{
-      filter: grayscale(0);
+      filter: grayscale(0.2);
       transform: scale(1.1);
 
     }
